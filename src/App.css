@@ -1,38 +1,25 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;600;700&display=swap');
+
+:root {
+  font-family: 'Anuphan', sans-serif; /* ฟอนต์ไม่มีหัวที่ดูสะอาดตา */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ซ่อน Scrollbar ของหมวดหมู่ แต่ยังเลื่อนได้ (สำหรับ Mobile) */
+.overflow-x-auto {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.overflow-x-auto::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ตกแต่ง Card ให้ดูมีมิติแบบนุ่มนวล (Soft UI) */
+.product-card-shadow {
+  box-shadow: 0 10px 25px -5px rgba(141, 106, 80, 0.05), 
+              0 8px 10px -6px rgba(141, 106, 80, 0.05);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* เอฟเฟกต์ตอนกดปุ่ม (Active state) */
+button:active {
+  transform: scale(0.95);
 }

@@ -1,0 +1,112 @@
+/* ===========================
+   statuslog.css — Mock Coffee Machine
+   =========================== */
+
+.status-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+  padding: 16px;
+}
+
+.status-dialog {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 430px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.status-header {
+  width: '100%';
+  padding: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-header.success {
+  background: #4caf50;
+}
+
+.status-header.error {
+  background: #D32F2F;
+}
+
+.status-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-content {
+  padding: 20px 20px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-text {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.status-text.success {
+  color: #4caf50;
+}
+
+.status-text.error {
+  color: #D32F2F;
+}
+
+.status-subtext {
+  font-size: 15px;
+  color: rgba(0,0,0,0.54);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.status-button-section {
+  padding: 16px;
+}
+
+.status-btn-outline {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #8D6A50;
+  border-radius: 8px;
+  background: transparent;
+  color: #8D6A50;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status-btn-outline-gray {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #9e9e9e;
+  border-radius: 8px;
+  background: transparent;
+  color: #333;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.status-icon-svg {
+  width: 40px;
+  height: 40px;
+}

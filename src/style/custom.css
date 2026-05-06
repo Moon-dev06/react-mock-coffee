@@ -1,0 +1,274 @@
+/* ===========================
+   custom.css — Mock Coffee Machine
+   =========================== */
+
+/* ── Colors (CSS Variables) ── */
+:root {
+  --brown:      #8D6A50;
+  --brown-dark: #5c4234;
+  --brown-bg:   #D7C0AE;
+  --green:      #B2C9AB;
+  --beige:      #F9F7F5;
+  --white:      #FFFFFF;
+  --gray:       #6b7280;
+  --gray-light: #e5e7eb;
+  --black-90:   rgba(0,0,0,0.9);
+}
+
+/* ── Components ── */
+.custom-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.custom-dialog {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 24px 20px 20px;
+  width: 100%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brown-dark);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.custom-form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.custom-section-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brown-dark);
+  margin-bottom: 6px;
+}
+
+.custom-segmented-group {
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid var(--gray-light);
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.custom-segment-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  background: var(--white);
+  color: var(--gray);
+  transition: all 0.15s;
+}
+
+.custom-segment-btn.active {
+  background: var(--brown);
+  color: var(--white);
+}
+
+.custom-divider {
+  border: none;
+  border-top: 1px solid var(--gray-light);
+  margin: 10px 0;
+}
+
+.custom-dropdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.custom-dropdown-label {
+  font-size: 14px;
+  color: #374151;
+}
+
+.custom-select {
+  border: 1px solid var(--gray-light);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 13px;
+  background: var(--white);
+  color: #374151;
+  cursor: pointer;
+  outline: none;
+}
+
+.custom-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.custom-checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--brown);
+  cursor: pointer;
+}
+
+.custom-checkbox-label {
+  font-size: 14px;
+  color: #374151;
+}
+
+.custom-terminal-wrapper {
+  margin-bottom: 12px;
+}
+
+.custom-terminal-title {
+  font-size: 11px;
+  color: var(--gray);
+  font-family: monospace;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.custom-terminal {
+  background: var(--black-90);
+  border-radius: 8px;
+  padding: 10px;
+  height: 100px;
+  overflow-y: auto;
+}
+
+.custom-terminal-line {
+  font-family: monospace;
+  font-size: 11px;
+  color: #86efac;
+  line-height: 1.6;
+}
+
+.custom-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--beige);
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+
+.custom-qr-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.custom-qr-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--brown-dark);
+  margin: 0;
+}
+
+.custom-spinner-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.custom-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--brown-bg);
+  border-top-color: var(--brown);
+  border-radius: 50%;
+  animation: custom-spin 0.8s linear infinite;
+}
+
+.custom-processing-text {
+  font-size: 13px;
+  color: var(--brown-bg);
+  margin: 0;
+}
+
+.custom-actions {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.custom-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.custom-price-tag {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brown);
+  white-space: nowrap;
+}
+
+.custom-btn-group {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.custom-btn-outline {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 1.5px solid var(--brown);
+  background: transparent;
+  color: var(--brown);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.custom-btn-primary {
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  background: var(--brown);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.custom-btn-text {
+  background: none;
+  border: none;
+  color: var(--gray);
+  font-size: 13px;
+  cursor: pointer;
+  text-align: center;
+  padding: 4px;
+}
+
+@keyframes custom-spin {
+  to { transform: rotate(360deg); }
+}

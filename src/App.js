@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import './App.css'
+import MenuScreen from './components/menu';
+import PaymentSlipPage from './components/slip_page';
 
 function App() {
+  const [view, setView] = useState('menu'); // 'menu' | 'slip'
+  const [slipData, setSlipData] = useState([]);
+
+  const handleShowSlip = (data) => {
+    setSlipData(data);
+    setView('slip');
+  };
+
+  const handleBackToMenu = () => {
+    setSlipData([]);
+    setView('menu');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      {view === 'menu' ? (
+        <MenuScreen onShowSlip={handleShowSlip} />
+      ) : (
+        <PaymentSlipPage 
+          receiptLines={slipData} 
+          onDone={handleBackToMenu} 
+        />
+      )}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

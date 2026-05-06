@@ -1,0 +1,274 @@
+/* ===========================
+   menu.css — Mock Coffee Machine
+   Theme: Minimal Modern / Warm Neutral
+   =========================== */
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background-color: #F9F7F5;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── CSS Variables ── */
+:root {
+  --green:      #B2C9AB;
+  --green-dark: #7a9872;
+  --brown-soft: #D7C0AE;
+  --brown-mid:  #8D6A50;
+  --brown-dark: #5c4234;
+  --beige:      #F9F7F5;
+  --white:      #FFFFFF;
+  --gray-100:   #F3F1EF;
+  --gray-200:   #E5E2DE;
+  --gray-400:   #A09890;
+  --gray-700:   #4a4540;
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --transition: 0.18s ease;
+}
+
+.menu-container {
+  min-height: 100vh;
+  background-color: var(--beige);
+}
+
+/* ── AppBar ── */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.app-bar {
+  background: var(--brown-mid);
+  padding: 16px 20px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+/* ── Tab Bar ── */
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  background: var(--white);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0 8px;
+  gap: 2px;
+}
+
+.tab-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-bar button {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gray-400);
+  cursor: pointer;
+  transition: color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.tab-bar button:hover {
+  color: var(--brown-mid);
+}
+
+.tab-bar button.active {
+  color: var(--brown-mid);
+  border-bottom-color: var(--brown-mid);
+}
+
+/* ── Main Grid ── */
+main {
+  padding: 16px 8px 40px;
+  width: 100%;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(8px, 2vw, 16px); /* gap ยืดหยุ่นตามหน้าจอ */
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ── Product Card ── */
+.product-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  width: 100%; /* ให้ card กว้างเต็ม column */
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brown-soft);
+}
+
+.product-card:active {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Image area — ใช้ aspect-ratio แทน height คงที่ */
+.card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* สัดส่วนรูปคงที่ทุกขนาด */
+  position: relative;
+  background-color: color-mix(in srgb, var(--green) 22%, var(--white));
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* รูปเต็มกรอบ ไม่บิดเบี้ยว */
+  object-position: center; /* จัดกึ่งกลาง */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .card-image img {
+  transform: scale(1.04);
+}
+
+.card-image .fallback-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(28px, 5vw, 40px); /* ขนาด icon ยืดหยุ่น */
+  opacity: 0.5;
+}
+
+/* Info area */
+.card-info {
+  padding: clamp(8px, 2vw, 14px); /* padding ยืดหยุ่น */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 6px;
+}
+
+.card-name {
+  font-size: clamp(12px, 1.8vw, 15px); /* ขนาดตัวอักษรยืดหยุ่น */
+  font-weight: 600;
+  color: var(--gray-700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.01em;
+}
+
+.card-price {
+  font-size: clamp(11px, 1.6vw, 14px); /* ขนาดราคายืดหยุ่น */
+  font-weight: 700;
+  color: var(--brown-mid);
+  letter-spacing: 0.02em;
+}
+
+/* Add button */
+.btn-add {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green-dark);
+  transition: background var(--transition), transform var(--transition);
+}
+
+.btn-add:hover {
+  background: color-mix(in srgb, var(--green) 25%, transparent);
+  transform: scale(1.1);
+}
+
+.btn-add:active {
+  transform: scale(0.95);
+}
+
+.btn-add svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* ── Empty State ── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 240px;
+  color: var(--gray-400);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.empty-state .empty-icon {
+  font-size: 40px;
+  opacity: 0.35;
+}
+
+/* ── Scrollbar (optional global) ── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gray-200);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brown-soft);
+}
