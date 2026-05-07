@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/coffeemachine/static/css/main.e173318e.css",
+    "main.js": "/coffeemachine/static/js/main.fd501133.js",
+    "index.html": "/coffeemachine/index.html",
+    "main.e173318e.css.map": "/coffeemachine/static/css/main.e173318e.css.map",
+    "main.fd501133.js.map": "/coffeemachine/static/js/main.fd501133.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e173318e.css",
+    "static/js/main.fd501133.js"
+  ]
+}
